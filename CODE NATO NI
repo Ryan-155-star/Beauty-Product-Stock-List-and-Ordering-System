@@ -64,8 +64,6 @@ public class Main {
             System.out.println("Invalid input! Enter Yes or No.");
         }
     }
-
-    // ✅ ADDED: ID checker
     static boolean isIdExists(ArrayList<Product> inventory, int id) {
         for (Product p : inventory) {
             if (p.id == id) {
