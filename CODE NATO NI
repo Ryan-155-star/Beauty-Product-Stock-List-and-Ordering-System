@@ -65,6 +65,16 @@ public class Main {
         }
     }
 
+    // ✅ ADDED: ID checker
+    static boolean isIdExists(ArrayList<Product> inventory, int id) {
+        for (Product p : inventory) {
+            if (p.id == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -292,7 +302,17 @@ public class Main {
                                 break;
 
                             case 2:
-                                int id = getValidInt(scanner, "Enter product ID: ");
+                                int id;
+                                
+                                while (true) {
+                                    id = getValidInt(scanner, "Enter product ID: ");
+                                    if (isIdExists(inventory1, id)) {
+                                        System.out.println("ID already exists! Try a different ID.");
+                                    } else {
+                                        break;
+                                    }
+                                }
+
                                 System.out.print("Enter product name: ");
                                 String name = scanner.nextLine();
                                 double price = getValidDouble(scanner, "Enter price: ");
