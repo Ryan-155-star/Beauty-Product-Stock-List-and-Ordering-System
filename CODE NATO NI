@@ -16,12 +16,12 @@ class Product {
 
     void display() {
         System.out.println("ID: " + id + " Product Name: " + name +
-                ", Price: ₱" + String.format("%.2f", price) +
+                ", Price: P=" + String.format("%.2f", price) +
                 ", Stock: " + stock);
     }
 }
 
-public class Main {
+public class JavaApplication4 {
 
     static int getValidInt(Scanner scanner, String message) {
         while (true) {
@@ -415,11 +415,11 @@ public class Main {
                                         int qty = quantities.get(i);
                                         double subtotal = p.price * qty;
 
-                                        System.out.println(p.name + " x" + qty + " = ₱" + String.format("%.2f", subtotal));
+                                        System.out.println(p.name + " x" + qty + " = P=" + String.format("%.2f", subtotal));
                                         total += subtotal;
                                     }
 
-                                    System.out.println("Total: ₱" + String.format("%.2f", total));
+                                    System.out.println("Total: P=" + String.format("%.2f", total));
                                 }
                                 break;
 
@@ -434,23 +434,26 @@ public class Main {
                                 for (int i = 0; i < cart.size(); i++) {
                                     total += cart.get(i).price * quantities.get(i);
                                 }
-
-                                System.out.println("Total amount: ₱" + String.format("%.2f", total));
-
-                                double payment = getValidDouble(scanner, "Enter payment: ");
+                                
+                                System.out.println("Total amount: P=" + String.format("%.2f", total));
+      
+                                double payment;
+                                while(true){
+                                payment = getValidDouble(scanner, "Enter payment: ");
 
                                 if (payment < total) {
                                     System.out.println("Insufficient payment!");
                                 } else {
-                                    double change = payment - total;
+                                    break;
+                                }}
+                                double change = payment - total;
 
-                                    System.out.println("Payment: ₱" + String.format("%.2f", payment));
-                                    System.out.println("Change: ₱" + String.format("%.2f", change));
+                                    System.out.println("Payment: P=" + String.format("%.2f", payment));
+                                    System.out.println("Change: P=" + String.format("%.2f", change));
                                     System.out.println("Transaction complete!");
 
                                     cart.clear();
                                     quantities.clear();
-                                }
                                 break;
 
                             case 5:
