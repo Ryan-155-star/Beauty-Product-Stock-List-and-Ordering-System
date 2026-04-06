@@ -16,7 +16,7 @@ class Product {
 
     void display() {
         System.out.println("ID: " + id + " Product Name: " + name +
-                ", Price: P=" + String.format("%.2f", price) +
+                ", Price: Php" + String.format("%.2f", price) +
                 ", Stock: " + stock);
     }
 }
@@ -419,7 +419,7 @@ public class JavaApplication4 {
                                         total += subtotal;
                                     }
 
-                                    System.out.println("Total: P=" + String.format("%.2f", total));
+                                    System.out.println("Total: Php" + String.format("%.2f", total));
                                 }
                                 break;
 
@@ -435,7 +435,7 @@ public class JavaApplication4 {
                                     total += cart.get(i).price * quantities.get(i);
                                 }
                                 
-                                System.out.println("Total amount: P=" + String.format("%.2f", total));
+                                System.out.println("Total amount: Php" + String.format("%.2f", total));
       
                                 double payment;
                                 while(true){
@@ -448,8 +448,8 @@ public class JavaApplication4 {
                                 }}
                                 double change = payment - total;
 
-                                    System.out.println("Payment: P=" + String.format("%.2f", payment));
-                                    System.out.println("Change: P=" + String.format("%.2f", change));
+                                    System.out.println("Payment: Php" + String.format("%.2f", payment));
+                                    System.out.println("Change: Php" + String.format("%.2f", change));
                                     System.out.println("Transaction complete!");
 
                                     cart.clear();
